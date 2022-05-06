@@ -1,0 +1,22 @@
+{
+  "name": "cs4400-phase4",
+  "version": "1.0.0",
+  "description": "Phase 4 Group 30",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.gatech.edu/jmclatcher3/cs4400-phase4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "bootstrap-icons": "^1.8.1",
+    "ejs": "^3.1.7",
+    "express": "^4.17.3",
+    "mysql2": "^2.3.3"
+  }
+}

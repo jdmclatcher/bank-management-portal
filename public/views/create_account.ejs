@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+
+    <script src="../createAccount.js" defer></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="page-header">
+        <h2>Create Account</h2>
+        <h4>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-menu-button-wide" viewBox="0 0 16 16">
+                <path d="M0 1.5A1.5 1.5 0 0 1 1.5 0h13A1.5 1.5 0 0 1 16 1.5v2A1.5 1.5 0 0 1 14.5 5h-13A1.5 1.5 0 0 1 0 3.5v-2zM1.5 1a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-13z"/>
+                <path d="M2 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm10.823.323-.396-.396A.25.25 0 0 1 12.604 2h.792a.25.25 0 0 1 .177.427l-.396.396a.25.25 0 0 1-.354 0zM0 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8zm1 3v2a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2H1zm14-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2h14zM2 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+            <a href="/account_menu" class="link-danger">Return to Account Menu</a>
+        </h4>
+    </div>
+    <div class="col col-md-4">
+        <form method="POST" action="/create_account">
+            <div class="form-group">
+                <label for="bankID">Bank*:</label>
+                <select class="form-select" id="bankID" name="bankID">
+                    <option value="" disabled selected>Bank ID</option>
+                    <% for(var i = 0; i < banks.length; i++) {%>
+                        <option value="<%= banks[i].bankID %>">
+                            <%= banks[i].bankID %>
+                        </option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="accountID">Account ID*:</label>
+                <input type="text" class="form-control" name="accountID" id="accountID" required>
+            </div>
+            <div class="form-group">
+                <label for="accountType">Account Type*:</label>
+                <select class="form-select" id="accountType" name="accountType">
+                    <option value="" disabled selected>Select</option>
+                    <option value="savings">Savings</option>
+                    <option value="checking">Checking</option>
+                    <option value="market">Market</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="customerID">Customer:</label>
+                <select class="form-select" id="customerID" name="customerID">
+                    <option value="" disabled selected>Customer ID</option>
+                    <% for(var i = 0; i < customers.length; i++) {%>
+                        <option value="<%= customers[i].perID %>">
+                            <%= customers[i].perID %>
+                        </option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="balance">Balance:</label>
+                <input type="number" class="form-control" name="balance" id="balance">
+            </div>
+            <div class="form-group">
+                <label for="minBalance">Minimum Balance:</label>
+                <input type="number" class="form-control" name="minBalance" id="minBalance">
+            </div>
+            <div class="form-group">
+                <label for="interestRate">Interest Rate (in %):</label>
+                <input step="0.01" type="number" class="form-control" name="interestRate" id="interestRate" placeholder="ex: '8.9' for 8.9%">
+            </div>
+            <div class="form-group">
+                <label for="maxWithdraws">Maximum Withdraws:</label>
+                <input type="number" class="form-control" name="maxWithdraws" id="maxWithdraws">
+            </div>
+            <div hidden id="message" role="alert">
+                <p></p>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Create Account" id="createAccount">
+                <button type="reset" onclick="window.location.href='/menu'" class="btn btn-danger">Cancel</button>
+            </div>
+            <div class="text-black" role="alert">
+                <p>* = required</p>
+            </div>
+            <br />
+            <br />
+        </form>
+    </div>
+</div>
+</body>
+</html>
