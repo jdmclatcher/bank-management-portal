@@ -15,11 +15,16 @@ Here are a few of the features:
 ### View Bank Stats
 ![Admin Login](/assets/bank_stats.png)
 
-### Create Fee
-![Create Fee](/assets/create_fee.png)
+### Create Corporation
+![Create Corp](/assets/create_corp.png)
+![Create Corp Success](/assets/create_corp_success.png)
+
+### Create Account
+![Create Account](/assets/create_account.png)
+![Create Account Success](/assets/account_create_success.png)
 
 ### Customer Menu
-![Create Fee](/assets/customer_menu.png)
+![Customer Menu](/assets/customer_menu.png)
 
 ## Technology Stack
 * Node.js w/express.js - For server backend and SQL integration
